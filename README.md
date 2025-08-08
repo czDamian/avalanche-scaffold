@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Avalanche Scaffold
+
+This is a starter template for building decentralized applications (dApps) on the Avalanche blockchain. It comes pre-configured with RainbowKit for wallet connections, Wagmi for interacting with smart contracts, and Next.js for the frontend.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Node.js](https://nodejs.org/en/) (v20 or later)
+- [Git](https://git-scm.com/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1.  **Clone the repository:**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    ```bash
+    git clone https://github.com/czDamian/avalanche-scaffold.git
+    cd avalanche-scaffold
+    ```
+
+2.  **Install dependencies:**
+
+    ```bash
+    npm install
+    ```
+
+3.  **Run the development server:**
+
+    ```bash
+    npm run dev
+    ```
+
+    Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+
+## File Structure
+
+### `Provider.jsx`
+
+This is a crucial file that sets up the context for your entire dApp. It wraps the application with the necessary providers from RainbowKit and Wagmi.
+
+-   **`WagmiProvider`**: Provides the Wagmi client to your app, allowing you to interact with the blockchain.
+-   **`QueryClientProvider`**: Provides the React Query client, which is used by Wagmi for caching and data fetching.
+-   **`RainbowKitProvider`**: Provides the RainbowKit UI components for wallet connections.
+
+You'll need to configure your `projectId` from WalletConnect Cloud in this file.
+
+### `components/`
+
+This directory contains the reusable React components for your dApp.
+
+-   **`Home.jsx`**: The main component that brings together the other components. It includes the `ConnectButton` from RainbowKit and the `ReadData`, `ReadData2`, and `WriteData` components.
+
+-   **`ReadData.jsx`**: A simple component that demonstrates how to read data from the blockchain using the `useAccount` hook from Wagmi. It displays the connected user's wallet address.
+
+-   **`ReadData2.jsx`**: This component shows a more advanced example of reading data from a smart contract. It uses the `useReadContract` hook from Wagmi to fetch the token name, balance, and total supply from an ERC20 token contract.
+
+-   **`WriteData.jsx`**: This component demonstrates how to write data to the blockchain by sending a transaction. It uses the `useWriteContract` hook from Wagmi to transfer a token to another address.
+
+-   **`tokenAbi.js`**: This file contains the ABI (Application Binary Interface) and address of the smart contract you want to interact with. You'll need to replace the placeholder address and ABI with your own contract's information.
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+To learn more about the technologies used in this scaffold, see the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+-   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+-   [RainbowKit Documentation](https://www.rainbowkit.com/docs) - learn about RainbowKit.
+-   [Wagmi Documentation](https://wagmi.sh/) - learn about Wagmi hooks and API.
+-   [Avalanche Documentation](https://docs.avax.network/) - learn about the Avalanche network.
