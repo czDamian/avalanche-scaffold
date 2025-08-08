@@ -33,17 +33,17 @@ const WriteData = () => {
   };
 
   return (
-    <div className="shadow-lg bg-neutral-800 rounded-2xl p-8 max-w-md">
+    <div className="shadow-lg bg-neutral-800 rounded-2xl p-8">
       <h1>Enter address to send the token to</h1>
       <input
         type="text"
         placeholder="0x..."
         value={recipient}
-        className="border w-full max-w-md border-gray-200 my-2 px-2 py-1 rounded-md outline-none"
+        className="border w-full max-w-3xl border-gray-200 my-2 px-2 py-1 rounded-md outline-none"
         onChange={(e) => setRecipient(e.target.value)}
       />
       <br />
-      <button className="bg-black cursor-pointer rounded-xl px-4 py-1.5" onClick={handleTransfer} disabled={isPending || !recipient}>
+      <button className="bg-black cursor-pointer rounded-xl px-4 py-1.5 mt-2" onClick={handleTransfer} disabled={isPending || !recipient}>
         {isPending ? "Sending..." : "Send Token"}
       </button>
 

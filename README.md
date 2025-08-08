@@ -7,7 +7,6 @@ This is a starter template for building decentralized applications (dApps) on th
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/en/) (v20 or later)
-- [Git](https://git-scm.com/)
 
 ### Installation
 

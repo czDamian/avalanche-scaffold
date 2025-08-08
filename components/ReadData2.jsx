@@ -30,7 +30,7 @@ const ReadData2 = () => {
   })
 
   return (
-    <div className="bg-neutral-900 border my-8 border-neutral-200 rounded-lg p-6 max-w-md  shadow-sm">
+    <div className="bg-neutral-900 my-8  rounded-2xl p-6 shadow-sm">
       <h2 className="text-lg font-medium text-neutral-100 mb-4 border-b border-neutral-200 pb-2">
         Token Information
       </h2>
